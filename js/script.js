@@ -37,8 +37,8 @@ window.addEventListener("load", () => {
 });
 
 let typed = new Typed(".typing", {
-    strings: ["", "Front-End разработчик", "Фото модель"],
-    typeSpeed: 150,
+    strings: ["", "Front-End разработчиком", "Фото моделью"],
+    typeSpeed: 180,
     BackSpeed: 60,
     loop: true
 });
@@ -51,12 +51,10 @@ const nav = document.querySelector(".nav"),
 for (let i = 0; i < totalNavList; i++) {
     const a = navList[i].querySelector("a");
     a.addEventListener("click", function () {
-        for (let i = 0; i < totalSection; i++) {
-            allSection[i].classList.remove("back-section")
-        }
+        removeBackSection()
         for (let j = 0; j < totalNavList; j++) {
             if (navList[j].querySelector("a").classList.contains("active")) {
-                allSection[j].classList.add("back-section")
+                addBackSection(j)
             }
             navList[j].querySelector("a").classList.remove("active")
         }
@@ -68,6 +66,15 @@ for (let i = 0; i < totalNavList; i++) {
     })
 }
 
+function removeBackSection() {
+    for (let i = 0; i < totalSection; i++) {
+        allSection[i].classList.remove("back-section")
+    }
+}
+function addBackSection(num) {
+    allSection[num].classList.add("back-section")
+}
+
 function showSection(element) {
     for (let i = 0; i < totalSection; i++) {
         allSection[i].classList.remove("active")
@@ -76,6 +83,22 @@ function showSection(element) {
     document.querySelector('#' + target).classList.add("active")
 }
 
+function updateNav(element) {
+    for (let i = 0; i < totalNavList; i++) {
+        navList[i].querySelector("a").classList.remove("active")
+        const target = element.getAttribute("href").split("#")[1]
+        if(target === navList[i].querySelector("a").getAttribute('href').split("#")[1]) {
+            navList[i].querySelector("a").classList.add("active")
+        }
+    }
+}
+document.querySelector(".hire-me").addEventListener("click", function () {
+    const sectionIndex = this.getAttribute("data-section-index")
+    showSection(this)
+    updateNav(this)
+    removeBackSection()
+    addBackSection(sectionIndex)
+})
 
 const navTogglerBtn = document.querySelector(".nav-toggler"),
     aside = document.querySelector(".aside");
@@ -93,3 +116,30 @@ function asideSectionTogglerBtn() {
         allSection[i].classList.toggle("open")
     }
 }
+
+const mailPath = 'mail.php'
+
+document.querySelectorAll('.uniForm').forEach( (e) => {
+
+    e.addEventListener('submit', function(e) {
+
+        let th      = this,
+            params  = new FormData(this),
+            request = new XMLHttpRequest()
+
+        request.open('POST', mailPath, true)
+        request.send(params)
+
+        request.onreadystatechange = function() {
+            if (this.readyState === 4 && this.status === 200) {
+                setTimeout(function() { th.reset() }, 1000)
+                alert('Thank you!')
+            }
+        }
+
+        e.preventDefault()
+
+    })
+
+})
+

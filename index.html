@@ -35,17 +35,32 @@
         <section id="home" class="home active section">
             <div class="container">
                 <div class="row">
+                    <div class="home-img-phone padd-15">
+                        <img src="./images/mainPhoto-phone.jpg" alt="">
+                    </div>
                     <div class="home-info padd-15">
-                        <h3 class="hello">Приветствую вас, меня зовут <span class="name">Нур Садыралиев</span></h3>
-                        <h3 class="my-profession">Наименование моей должности: <span class="typing"></span></h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum facilis minima molestias
-                            praesentium? Accusantium autem cumque distinctio, ducimus earum illo, nesciunt, perspiciatis
-                            quasi repudiandae soluta tempora totam ullam velit voluptatibus.</p>
-                        <a href="#contact" class="btn hire-me">Here Me</a>
+<!--                        <h3 class="hello">Приветствую вас, меня зовут <span class="name">Нур Садыралиев</span></h3>-->
+                        <h3 class="name">Нур Садыралиев</h3>
+                        <h3 class="my-profession">Я являюсь: <span class="typing"></span></h3>
+                        <p>Мое неизменное увлечение – это путешествия и исследование новых мест.</p>
+                        <a href="#contact" data-section-index="1" class="btn hire-me">Here Me</a>
+
+                        <div class="icon-social">
+                            <a href="https://www.instagram.com/tsadyraliev5?igsh=ZjF1OGl6eWcxb2h5" class="icon__home">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                            <a href="https://t.me/nurdevv" class="icon__home">
+                                <i class="fa-brands fa-telegram"></i>
+                            </a>
+                            <a href="https://github.com/nurdevv/" class="icon__home">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                        </div>
                     </div>
                     <div class="home-img padd-15">
-                        <img src="./images/Nur_Sadyraliev.jpg" alt="">
+                        <img src="./images/CU6A0390.jpg" alt="">
                     </div>
+
                 </div>
             </div>
         </section>
@@ -163,19 +178,22 @@
                 <h3 class="contact-title padd-15">Send me an email</h3>
                 <h4 class="contact-sub-title padd-15">I`M VERY RESPOSIVE TO MASSAGE</h4>
                 <div class="row">
-                    <div class="contact-form padd-15">
+                    <form class="contact-form padd-15">
+                        <input type="hidden" name="project_name" value="Portfolio">
+                        <input type="hidden" name="admin_email" value="nursadyraliev@gmail.com">
+                        <input type="hidden" name="form_subject" value="Обратная связь">
                         <div class="row">
                             <div class="form-item col-6 padd-15">
                                 <div class="form-group">
                                     <label>
-                                        <input type="text" placeholder="Name" class="form-control">
+                                        <input name="Имя" type="text" placeholder="Name" class="form-control">
                                     </label>
                                 </div>
                             </div>
                             <div class="form-item col-6 padd-15">
                                 <div class="form-group">
                                     <label>
-                                        <input type="email" placeholder="Email" class="form-control">
+                                        <input name="E-mail" type="email" placeholder="Email" class="form-control">
                                     </label>
                                 </div>
                             </div>
@@ -184,7 +202,7 @@
                             <div class="form-item col-12 padd-15">
                                 <div class="form-group">
                                     <label>
-                                        <input type="text" class="form-control" placeholder="Subject">
+                                        <input name="Тема" type="text" class="form-control" placeholder="Subject">
                                     </label>
                                 </div>
                             </div>
@@ -193,7 +211,7 @@
                             <div class="form-item col-12 padd-15">
                                 <div class="form-group">
                                     <label>
-                                        <textarea name="" id="" class="form-control" placeholder="Massage"></textarea>
+                                        <textarea name="Сообщение" id="" class="form-control" placeholder="Massage"></textarea>
                                     </label>
                                 </div>
                             </div>
@@ -203,7 +221,7 @@
                                 <button class="btn" type="submit">Send Message</button>
                             </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </section>
@@ -232,6 +250,7 @@
         integrity="sha512-+2pW8xXU/rNr7VS+H62aqapfRpqFwnSQh9ap6THjsm41AxgA0MhFRtfrABS+Lx2KHJn82UOrnBKhjZOXpom2LQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://kit.fontawesome.com/99d91a2e97.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="./js/script.js"></script>
 
 </body>
