@@ -119,7 +119,7 @@ function asideSectionTogglerBtn() {
 
 const mailPath = 'mail.php'
 
-document.querySelectorAll('.uniForm').forEach( (e) => {
+document.querySelectorAll('form').forEach( (e) => {
 
     e.addEventListener('submit', function(e) {
 
