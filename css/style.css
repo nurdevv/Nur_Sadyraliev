@@ -10,7 +10,7 @@
     --primary: #6d5dfc;
     --primary-dark: #5b0eeb;
 
-    --white: #FFFFFF;
+    --white: rgba(255, 255, 255, 0.58);
     --greyLight-1: #E4EBF5;
     --greyLight-2: #c8d0e7;
     --greyLight-3: #bec8e4;
@@ -485,6 +485,7 @@ h3.my-profession {
     font-size: 16px;
     color: var(--text-balck-700);
     line-height: 25px;
+    padding-bottom: 30px;
 }
 
 .portfolio-heading {
@@ -496,6 +497,10 @@ h3.my-profession {
 .portfolio-heading h2 {
     color: var(--text-black-900);
     font-weight: 500;
+}
+
+.portfolio-heading h2 span {
+    color: var(--skin-color);
 }
 
 .portfolio-item {
@@ -515,6 +520,11 @@ h3.my-profession {
     width: 100%;
     display: block;
 }
+
+form {
+    outline: none;
+}
+
 
 .contact-title {
     color: var(--skin-color);
@@ -555,7 +565,7 @@ h3.my-profession {
     margin: 15px 0 5px;
 }
 
-.contact-info-item p {
+.contact-info-item a {
     font-size: 16px;
     line-height: 25px;
     color: var(--text-balck-700);
@@ -594,8 +604,11 @@ h3.my-profession {
 }
 
 .form-control:focus {
-    box-shadow: 0 0 20px rgba(48, 46, 77, 0.15);
+    /*box-shadow: 0 0 20px rgba(48, 46, 77, 0.15);*/
+    box-shadow: .3rem .3rem .6rem rgba(200, 208, 231, 0.65), -.2rem -.2rem .5rem rgba(255, 255, 255, 0.64);
 }
+
+
 
 textarea.form-control {
     height: 140px;
@@ -604,6 +617,11 @@ textarea.form-control {
 .contact-form .btn {
     height: 50px;
     padding: 0 50px;
+}
+
+#sendText {
+    color: white;
+    font-size: 20px;
 }
 
 @media (max-width: 1199px) {

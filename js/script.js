@@ -99,6 +99,15 @@ document.querySelector(".hire-me").addEventListener("click", function () {
     removeBackSection()
     addBackSection(sectionIndex)
 })
+document.querySelector(".hire-me-service").addEventListener("click", function () {
+    const sectionIndex = this.getAttribute("data-section-index")
+    showSection(this)
+    updateNav(this)
+    removeBackSection()
+    addBackSection(sectionIndex)
+})
+
+
 
 const navTogglerBtn = document.querySelector(".nav-toggler"),
     aside = document.querySelector(".aside");
@@ -117,30 +126,23 @@ function asideSectionTogglerBtn() {
     }
 }
 
-const mailPath = '../mail.php'
 
-document.querySelectorAll('form').forEach( (e) => {
+const scriptURL = 'https://script.google.com/macros/s/AKfycbxBAoRYE6PZaDWEFQweXOEusnIJL1BExFZCwdNZGg9bfoMBX4NLRkeZnhevDZmXKRWI/exec'
+const form = document.forms['submit-to-google-sheet']
+const sendText = document.getElementById('sendText')
 
-    e.addEventListener('submit', function(e) {
-
-        let th      = this,
-            params  = new FormData(this),
-            request = new XMLHttpRequest()
-
-        request.open('POST', mailPath, true)
-        request.send(params)
-
-        request.onreadystatechange = function() {
-            if (this.readyState === 4 && this.status === 200) {
-                setTimeout(function() { th.reset() }, 1000)
-                alert('Thank you!')
-            }
-        }
-
-        e.preventDefault()
-
-    })
-
+form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            sendText.innerHTML = 'Благодарю за ваш отклик. <br> Я обязательно отвечу вам в ближайшее время'
+            setTimeout(function () {
+                sendText.innerHTML = ''
+            }, 6000)
+            form.reset()
+        })
+        .catch(error => console.error('Error!', error.message))
 })
+
 
 
