@@ -117,7 +117,7 @@ function asideSectionTogglerBtn() {
     }
 }
 
-const mailPath = 'mail.php'
+const mailPath = '../mail.php'
 
 document.querySelectorAll('form').forEach( (e) => {
 
@@ -142,4 +142,5 @@ document.querySelectorAll('form').forEach( (e) => {
     })
 
 })
+
 
